@@ -5,6 +5,6 @@ import org.example.twoPointer.TwoPointer;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(TwoPointer.checkPalindrome("A man, a plan, a canal: Panama"));
+        System.out.println(TwoPointer.reverseString("Hello World"));
     }
 }

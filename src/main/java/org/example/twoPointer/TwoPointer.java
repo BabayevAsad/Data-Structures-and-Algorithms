@@ -1,5 +1,7 @@
 package org.example.twoPointer;
 
+import java.util.Arrays;
+
 public class TwoPointer {
 
     /// example inputs: arr[2,7,11,15] (for sorted arrays), target 9;
@@ -47,5 +49,25 @@ public class TwoPointer {
             right--;
         }
         return true;
+    }
+
+    /// Example inputs:Hello World, Champions league, Git commit
+    public static String reverseString(String text){
+        if(text==null || text.length()==1) return text;
+
+        char arr[] = text.toCharArray();
+        int left=0;
+        int right=text.length()-1;
+
+        while(left<right){
+            char temp=arr[left];
+            arr[left]=arr[right];
+            arr[right]=temp;
+
+            right--;
+            left++;
+        }
+
+        return new String(arr);
     }
 }
