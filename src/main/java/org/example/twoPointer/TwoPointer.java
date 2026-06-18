@@ -27,4 +27,25 @@ public class TwoPointer {
             }
         }
     }
+
+    /// Example inputs: "A man, a plan, a canal: Panama", "No 'x' in Nixon", "Was it a car or a cat I saw?"
+    /// We ignore spaces, punctuations and cases
+    public static boolean checkPalindrome(String text){
+        if(text==null) return false;
+        if(text.length()==1) return true;
+
+        text=text.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
+
+        int left=0;
+        int right=text.length()-1;
+
+        while(left<right){
+            if(text.charAt(left)!=text.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
 }
