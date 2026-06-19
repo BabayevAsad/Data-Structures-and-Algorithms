@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.slidingWindow.SlidingWindow;
+import org.example.slidingwindow.SlidingWindow;
 
 public class Main {
     public static void main(String[] args) {
