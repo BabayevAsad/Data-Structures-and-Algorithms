@@ -70,4 +70,24 @@ public class TwoPointer {
 
         return new String(arr);
     }
+
+    /// new int[]{1,1,1,2,2,3,4,5,6}, {0,0,1,1,1,2,3,4,4,4,5}
+    /// removing continuous duplicates, and replace remaining elements with 0
+    public static String removeDuplicates(int[] arr){
+        if(arr==null || arr.length==0) return "[]";
+
+        int left=0;
+        for(int right=1; right<arr.length; right++){
+            if(arr[right]!=arr[left]){
+                left++;
+                arr[left]=arr[right];
+            }
+        }
+
+        for (int i = left + 1; i < arr.length; i++) {
+            arr[i] = 0;
+        }
+
+        return Arrays.toString(arr);
+    }
 }
