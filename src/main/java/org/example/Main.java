@@ -5,6 +5,6 @@ import org.example.slidingWindow.SlidingWindow;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(SlidingWindow.longestSubstringWithoutRepeating("bacaefgh"));
+        System.out.println(SlidingWindow.longestSubstringWithKDistinctCharacter("arabciab",3));
     }
 }

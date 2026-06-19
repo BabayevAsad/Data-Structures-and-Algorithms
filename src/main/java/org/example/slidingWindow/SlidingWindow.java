@@ -49,4 +49,31 @@ public class SlidingWindow {
 
         return max;
     }
+
+    /// example inputs:"arabciab",3; "aaabbbccccc", 2
+    /// Longest Substring With At Most K Distinct Characters
+    public static int longestSubstringWithKDistinctCharacter(String text, int k){
+        if (text==null || text.length()==0) return 0;
+        if (text.length()==1) return 1;
+
+        Map<Character,Integer> map= new HashMap<>();
+        int left=0;
+        int max=0;
+
+        for(int right=0; right<text.length(); right++){
+            char currentChar = text.charAt(right);
+            map.put(currentChar,map.getOrDefault(currentChar,0)+1);
+
+            while(map.size()>k){
+                map.put(text.charAt(left),map.get(text.charAt(left))-1);
+
+                if(map.get(text.charAt(left))==0){
+                    map.remove(text.charAt(left));
+                }
+                left++;
+            }
+            max=Math.max(max,right-left+1);
+        }
+        return max;
+    }
 }
