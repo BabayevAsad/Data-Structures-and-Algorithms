@@ -1,10 +1,10 @@
 package org.example;
 
-import org.example.twoPointer.TwoPointer;
+import org.example.slidingWindow.SlidingWindow;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(TwoPointer.removeDuplicates(new int[]{1,1,1,2,2,3,4,5,6}));
+        System.out.println(SlidingWindow.maxSumSubArray(new int[]{2,1,5,1,3,2},3));
     }
 }
