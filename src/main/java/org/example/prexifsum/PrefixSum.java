@@ -17,4 +17,26 @@ public class PrefixSum {
 
         return prefix[R+1]-prefix[L];
     }
+
+    /// example inputs: {1,7,3,6,5,6}, {2, 1, -1}
+    /// Find Pivot Index using Prefix Sum
+    public static int findPivotIndex(int[] arr){
+        if (arr == null || arr.length == 0) return -1;
+
+        int[] prefix = new int[arr.length + 1];
+        prefix[0] = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            prefix[i + 1] = prefix[i] + arr[i];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            int leftSum =prefix[i];
+            int rightSum=prefix[arr.length]-prefix[i+1];
+
+            if(leftSum==rightSum) return i;
+        }
+
+        return -1;
+    }
 }
