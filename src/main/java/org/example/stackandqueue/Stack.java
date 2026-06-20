@@ -32,4 +32,36 @@ public class Stack {
         }
         return stack.isEmpty();
     }
+
+    /// example inputs:["5","2","C","D","+"], ["-2", "5", "0", "D", "+"],  ["5", "2", "C", "D", "+", "9", "+", "+"]
+    /// Rules:Integer-->Add this score to stack, "C" (Cancel)-->Remove last valid score, "D" (Double) 👉 Add double of last score,
+    /// "+" (Sum)-->Add sum of last two scores
+    public static int baseballGame(String[] operations){
+        if (operations == null || operations.length == 0) return 0;
+
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for(String o : operations){
+
+            switch (o){
+                case "D"->{
+                    if (!stack.isEmpty()) stack.push(stack.peek() * 2);
+                }
+                case "C"->{
+                    if (!stack.isEmpty()) stack.pop();
+                }
+                case "+"->{
+                    if (stack.size() >= 2) {
+                        int last = stack.pop();
+                        int newValue = stack.peek() + last;
+                        stack.push(last);
+                        stack.push(newValue);
+                    }
+                }
+                default -> stack.push(Integer.parseInt(o));
+            }
+        }
+
+        return stack.stream().mapToInt(Integer::intValue).sum();
+    }
 }
