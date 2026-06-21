@@ -1,10 +1,11 @@
 package org.example;
 
+import org.example.binarysearch.BinarySearch;
 import org.example.prexifsum.PrefixSum;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(PrefixSum.continuesSum(new int[]{1,11,3,2},16));
+        System.out.println(BinarySearch.binarySearch(new int[]{1,2,3,4,5,6,7,8,9,10},2));
     }
 }
