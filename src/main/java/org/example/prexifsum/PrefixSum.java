@@ -65,4 +65,32 @@ public class PrefixSum {
 
         return resultCount;
     }
+
+    /// example inputs:arr {5,1,2,4} k=7; arr{1,11,3,2} k=16
+    /// Continuous Subarray Sum (if there is a subarray whose sum is multiple of k)?
+    public static boolean continuesSum(int[] arr, int k){
+        if (arr == null || arr.length < 2) return false;
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        map.put(0, -1);
+
+        int prefixSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
+
+            int remainder = prefixSum % k;
+
+            if (map.containsKey(remainder)) {
+                int remainderIndex = map.get(remainder);
+                if (i - remainderIndex >= 2) {
+                    return true;
+                }
+            } else {
+                map.put(remainder, i);
+            }
+        }
+        return false;
+    }
 }
